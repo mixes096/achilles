@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+  <head th:replace="fragments/head :: head">
+  </head>
+   <body class="fix-sidebar fix-header">
+   
+      <!-- Preloader -->
+      <div class="preloader">
+         <div class="cssload-speeding-wheel"></div>
+      </div>
+      <div id="wrapper">
+         <!-- Top Navigation -->
+         <nav th:replace="fragments/top_navbar :: navbar">
+         </nav>
+         <!-- End Top Navigation -->
+         
+         <!-- Left navbar-sidebar -->
+         <div th:replace="fragments/left_sidebar :: sidebar">
+         </div>
+         <!-- Left navbar-sidebar end -->
+         
+         <!-- Page Content -->
+         <div id="page-wrapper">
+            <div class="container-fluid" id="ops-page">
+               <div class="row bg-title">
+                  <!-- .page title -->
+                  <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                     <h4 class="page-title">运营数据</h4>
+                  </div>
+                  <!-- /.page title -->
+                  <!-- .breadcrumb -->
+                  <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                     <ol class="breadcrumb">
+                        <li><a th:href="@{/}">仪表盘</a></li>
+                        <li class="active"><a th:href="@{/ops}">运营数据</a></li>
+                     </ol>
+                  </div>
+                  <!-- /.breadcrumb -->
+               </div>
+               <div class="row" >
+                <div class="col-md-12">
+                    <div class="panel panel-default" >
+                        <div class="panel-heading">
+                          <h4  >医院覆盖计算 </h4>
+                        </div> 
+                        <div class="panel-wrapper collapse in">
+                           <div class="panel-body" style="padding: 0 20px 0 20px;">
+                              <table class="table table-hover" style="text-align: left">
+                                <thead><tr><td width="20%"></td><td width="20%"></td><td></td><td width="10%"></td></tr></thead>
+                                <tbody>
+                                    <tr sec:authorize="hasAnyRole('ADMIN','OPERATIVE')" >
+                                    <td><a th:href="@{/ops/hospitalrestaurant/view}" >医院餐厅距离信息导出</a></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td align="center">
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                           </div>
+                        </div>
+                      </div>
+                  </div>
+               </div>
+               <div class="row"  sec:authorize="hasAnyRole('ROOT')">
+                <div class="col-md-12" >
+                    <div class="panel panel-default" >
+                        <div class="panel-heading">
+                          <h4 >数据修改 </h4>
+                        </div> 
+                        <div class="panel-wrapper collapse in">
+                           <div class="panel-body" style="padding: 0 20px 0 20px;">
+                              <table class="table table-hover" style="text-align: left">
+                                <thead><tr><td width="20%"></td><td width="20%"></td><td></td><td width="10%"></td></tr></thead>
+                                <tbody>
+                                    <tr>
+	                                    <td><a th:href="@{/ops/import/ucb/list}" >ucb新员工录入</a></td>
+	                                    <td></td>
+	                                    <td></td>
+	                                    <td align="center">
+	                                    </td>
+                                  </tr>
+                                   <tr>
+                                        <td><a th:href="@{/ops/order/special/mark/list}" >企业后台-订单备注</a></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td align="center">
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                        <td><a th:href="@{/ops/account/info/list}" >企业后台-账户信息</a></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td align="center">
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                        <td><a th:href="@{/ops/receipt/list}" >企业后台-代收款证明</a></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td align="center">
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                        <td><a th:href="@{/ops/arc/code/list}" >ucb-arcCode</a></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td align="center">
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                        <td><a th:href="@{/data/model/page}" >数据导入(excel/csv)</a></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td align="center">
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                        <td><a th:href="@{/hospital/import/page}" >医院导入</a></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td align="center">
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                        <td><a th:href="@{/sepcial/restaurant/edit}" >特许导入</a></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td align="center">
+                                        </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                           </div>
+                        </div>
+                      </div>
+                  </div>
+               </div>
+               <div class="row" >
+                  <div class="col-md-12">
+                    <div class="panel panel-default" >
+                        <div class="panel-heading">
+                          <h4 >数据导出 </h4>
+                        </div> 
+                        <div class="panel-wrapper collapse in">
+                           <div class="panel-body" style="padding: 0 20px 0 20px;">
+                              <table class="table table-hover" style="text-align: left">
+                                <thead><tr><td width="20%"></td><td width="20%"></td><td></td><td width="10%"></td></tr></thead>
+                                <tbody>
+                                  <tr sec:authorize="hasAnyRole('ADMIN','OPERATIVE')" th:each="tb:${tables}">
+                                    <td><a th:href="@{'/template/list?tableId='+${tb.id}}" th:text="${tb.chartName}"></a></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td align="center">
+                                        <div class="btn-group m-r-10">
+                                            <button aria-expanded="false" data-toggle="dropdown" class="btn btn-default btn-sm dropdown-toggle waves-effect waves-light" type="button"> <i class="fa fa-list"></i></button>
+                                            <ul role="menu" class="dropdown-menu">
+                                              <li><a th:href="@{'/template/edit?tableId='+${tb.id}}">添加模版</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                           </div>
+                        </div>
+                      </div>
+                  </div>
+               </div>
+               
+               <!-- .right-sidebar -->
+               <div th:replace="fragments/right_sidebar :: rightsidebar">
+               </div>
+               <!-- /.right-sidebar -->
+            </div>
+            <!-- /.container-fluid -->
+            <footer th:replace="fragments/footer :: footer"></footer>
+         </div>
+         <!-- /#page-wrapper -->
+      </div>
+      <!-- /#wrapper -->
+   
+      <div class="foot_scripts" id="foot_scripts" th:replace="fragments/foot_scripts :: foot_scripts"></div>
+      <script type="text/javascript">
+      /*<![CDATA[*/
+        $(function(){
+            $(".refresh-btn").each(function(){
+            	var $updateBtn = $(this);
+            	$updateBtn.click(function(){
+                    var $btn = $(this);           
+                    $btn.addClass("disabled").html("更新中");
+                    var ids = "";
+                    var idarr = $btn.attr("job-id").split("_");
+                    $(idarr).each(function(){
+                        var idValue= this;
+                        ids += ids=="" ? "ids="+idValue :"&ids="+idValue;
+                    });
+                    $.ajax({
+                        type : "get",  
+                        url : "ops/refresh?"+ids,  
+                        dataType:"json",  
+                        success : function(msg) {  
+                        	$($updateBtn).prev().text(msg.date);
+                            $($updateBtn).removeClass("disabled");
+                            $($updateBtn).html("马上更新");
+                        }  
+                    });  
+                });
+            });
+        });
+        /*]]>*/
+        </script>
+   </body>
+</html>
